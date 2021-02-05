@@ -17,9 +17,9 @@ public class Settings {
     private String name = "Name";
     private int total_questions = 5;
     private final int seconds = 10;
-    private String fileQuestion = "D:\\JAVA\\JAVA\\src\\test\\quiz\\questions.json";
-    private static final File fileSettings = new File("D:\\JAVA\\JAVA\\src\\test\\quiz\\settings.json");
-    private static final File fileScores = new File("D:\\JAVA\\JAVA\\src\\test\\quiz\\score.json");
+    private String fileQuestion = "questions.json";
+    private static final File fileSettings = new File("settings.json");
+    private static final File fileScores = new File("score.json");
 
     public Settings(String name, int total_questions) {
         this.name = name;

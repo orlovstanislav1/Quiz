@@ -92,11 +92,11 @@ public class SettingsFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == themeChoose) {
             if (Objects.requireNonNull(themeChoose.getSelectedItem()).equals("JAVA"))
-                settings.setFileQuestion("D:\\JAVA\\JAVA\\src\\test\\quiz\\questions\\questions.json");
+                settings.setFileQuestion("questions.json");
             if (themeChoose.getSelectedItem().equals("SCIENCE"))
-                settings.setFileQuestion("D:\\JAVA\\JAVA\\src\\test\\quiz\\questions\\questions.json");
+                settings.setFileQuestion("questions.json");
             if (themeChoose.getSelectedItem().equals("SPORT"))
-                settings.setFileQuestion("D:\\JAVA\\JAVA\\src\\test\\quiz\\questions\\questions.json");
+                settings.setFileQuestion("questions.json");
             // сохраняем в файл наш выбор темы
         }
         if (e.getSource() == questionsCountChoose) {
