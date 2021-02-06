@@ -21,8 +21,8 @@ public class SettingsFrame extends JFrame implements ActionListener {
     private final JComboBox<? extends String> themeChoose;
     private final JComboBox<? extends String> questionsCountChoose;
 
-    private JRadioButton timeChallenge;
-    private JRadioButton survivalChallenge;
+    private final JRadioButton timeChallenge;
+    private final JRadioButton survivalChallenge;
 
     public SettingsFrame() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -169,13 +169,14 @@ public class SettingsFrame extends JFrame implements ActionListener {
         if (e.getSource() == noSaveButton) {
             // Домой без сохранения
             frame.dispose();
-            Settings.settingsWriter(settings); //сохраняем настройки в settings.json
             MainMenuFrame mainMenuFrame = new MainMenuFrame();
         }
         if (e.getSource() == timeChallenge) {
+            settings.setModeGame(timeChallenge.getText());
             // Выбран режим по времени
         }
         if (e.getSource() == survivalChallenge) {
+            settings.setModeGame(survivalChallenge.getText());
             // Выбран режим выживания
         }
 
