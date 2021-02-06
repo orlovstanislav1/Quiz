@@ -7,7 +7,7 @@ package com.frame;
  * GameFrame
  * убрать из класса все лишнее
  * перемеслить не стандартную логику игры в классы-наследники
- */
+ * */
 
 import com.quiz.Question;
 import com.quiz.Scores;
@@ -222,6 +222,7 @@ public abstract class GameFrame implements ActionListener {
     }
 
     private void nextQuestion() {
+
         if (index >= settings.getTotal_questions()) {
             results();
         } else {
@@ -304,4 +305,3 @@ public abstract class GameFrame implements ActionListener {
         Settings.scoresWriter(new Scores(settings.getName(),"",correct_guesses*100));
     }
 }
-

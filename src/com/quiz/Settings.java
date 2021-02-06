@@ -84,7 +84,6 @@ public class Settings {
         }
         return null;
     }
-
     //сохранение настроек
     public static void settingsWriter(Settings setting) {
         ObjectMapper objectMapper = new ObjectMapper();
