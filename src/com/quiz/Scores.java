@@ -1,4 +1,4 @@
-package com.company.quiz;
+package com.quiz;
 
 public class Scores {
     private String name;

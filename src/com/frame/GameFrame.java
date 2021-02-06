@@ -1,7 +1,11 @@
-package com.company.quiz;
+package com.frame;
 // ---------------------------- Main ----------------------------
 
 // ---------------------------- Quiz ----------------------------
+
+import com.quiz.Question;
+import com.quiz.Scores;
+import com.quiz.Settings;
 
 import javax.swing.*;
 import java.awt.*;

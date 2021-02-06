@@ -1,4 +1,6 @@
-package com.company.quiz;
+package com.quiz;
+
+import com.frame.MainMenuFrame;
 
 public class Main {
 

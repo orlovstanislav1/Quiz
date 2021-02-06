@@ -1,4 +1,8 @@
-package com.company.quiz;
+package com.frame;
+
+import com.frame.MainMenuFrame;
+import com.quiz.Scores;
+import com.quiz.Settings;
 
 import javax.swing.*;
 import java.awt.*;
