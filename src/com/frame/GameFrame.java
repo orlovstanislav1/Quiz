@@ -1,6 +1,13 @@
 package com.frame;
+// ---------------------------- Main ----------------------------
 
+// ---------------------------- Quiz ----------------------------
 
+/**
+ * GameFrame
+ * убрать из класса все лишнее
+ * перемеслить не стандартную логику игры в классы-наследники
+ */
 
 import com.quiz.Question;
 import com.quiz.Scores;
@@ -8,6 +15,7 @@ import com.quiz.Settings;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
 import java.util.Random;
@@ -163,7 +171,6 @@ public abstract class GameFrame implements ActionListener {
         lives_left.setOpaque(true);
         lives_left.setHorizontalAlignment(JTextField.CENTER);
         lives_left.setText(String.valueOf(numberLives));
-
 
         JLabel time_label = new JLabel();
         time_label.setBounds(535, 475, 100, 25);
