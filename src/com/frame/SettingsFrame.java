@@ -1,6 +1,6 @@
 package com.frame;
 
-import com.frame.MainMenuFrame;
+import com.quiz.Settings;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,8 +21,8 @@ public class SettingsFrame extends JFrame implements ActionListener {
     private final JComboBox<? extends String> themeChoose;
     private final JComboBox<? extends String> questionsCountChoose;
 
-    private JRadioButton timeChallenge;
-    private JRadioButton survivalChallenge;
+    private final JRadioButton timeChallenge;
+    private final JRadioButton survivalChallenge;
 
     public SettingsFrame() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -32,8 +32,7 @@ public class SettingsFrame extends JFrame implements ActionListener {
         frame.setResizable(false);
         frame.setVisible(true);
 
-
-        //РѕРїСЂРµРґРµР»РёС‚СЊ РїРµСЂРµС‡РµРЅСЊ С‚РµРј
+        //определить перечень тем
         String[] themes = {"SPORT", "SCIENCE", "JAVA"};
         themeChoose = new JComboBox<>(themes);
         themeChoose.setFont(new Font("Courier", Font.BOLD, 25));
@@ -46,7 +45,7 @@ public class SettingsFrame extends JFrame implements ActionListener {
         themeChoose.setFocusable(true);
         ((JLabel) themeChoose.getRenderer()).setHorizontalAlignment(JLabel.CENTER);
 
-        //РѕРїСЂРµРґРµР»РёС‚СЊ РєРѕР»-РІРѕ РІРѕРїСЂРѕСЃРѕРІ
+        //определить кол-во вопросов
         String[] count = {"5", "10", "15"};
         questionsCountChoose = new JComboBox<>(count);
         questionsCountChoose.setFont(new Font("Courier", Font.BOLD, 25));
@@ -56,7 +55,6 @@ public class SettingsFrame extends JFrame implements ActionListener {
         questionsCountChoose.addActionListener(this);
         questionsCountChoose.setSelectedIndex(0);
         questionsCountChoose.setVisible(true);
-
 
         JTextArea text = new JTextArea("Write Your name");
         JTextArea text2 = new JTextArea("Theme");
@@ -97,7 +95,6 @@ public class SettingsFrame extends JFrame implements ActionListener {
         timeChallenge.setFont(new Font("Courier", Font.BOLD, 25));
         survivalChallenge.setFont(new Font("Courier", Font.BOLD, 25));
 
-
         textField.setBounds(325, 100, 300, 50);
         textField.setFont(new Font("Courier", Font.BOLD, 35));
         textField.setBackground(new Color(219, 206, 206));
@@ -116,8 +113,6 @@ public class SettingsFrame extends JFrame implements ActionListener {
 
             @Override
             public void focusLost(FocusEvent e) {
-
-
             }
         });
 
@@ -152,36 +147,37 @@ public class SettingsFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == themeChoose) {
             if (Objects.requireNonNull(themeChoose.getSelectedItem()).equals("JAVA"))
-                settings.setFileQuestion("C:\\Users\\11\\IdeaProjects\\untitled2\\src\\test\\quiz\\questions.json");
+                settings.setFileQuestion("questions.json");
             if (themeChoose.getSelectedItem().equals("SCIENCE"))
-                settings.setFileQuestion("C:\\Users\\11\\IdeaProjects\\untitled2\\src\\test\\quiz\\questions.json");
+                settings.setFileQuestion("questions.json");
             if (themeChoose.getSelectedItem().equals("SPORT"))
-                settings.setFileQuestion("C:\\Users\\11\\IdeaProjects\\untitled2\\src\\test\\quiz\\questions.json");
-            // СЃРѕС…СЂР°РЅСЏРµРј РІ С„Р°Р№Р» РЅР°С€ РІС‹Р±РѕСЂ С‚РµРјС‹
+                settings.setFileQuestion("questions.json");
+            // сохраняем в файл наш выбор темы
         }
         if (e.getSource() == questionsCountChoose) {
-            // СЃРѕС…СЂР°РЅСЏРµРј РІ С„Р°Р№Р» РЅР°С€ РІС‹Р±РѕСЂ С‚РµРјС‹
+            // сохраняем в файл наш выбор темы
             settings.setTotal_questions(Integer.parseInt(Objects.requireNonNull(questionsCountChoose.getSelectedItem()).toString()));
         }
         //df/
         if (e.getSource() == saveButton) {
-            // СЃРѕС…СЂР°РЅСЏРµРј РІ С„Р°Р№Р» РЅР°С€ РІС‹Р±РѕСЂ РёРјРµРЅРё  Рё РіРѕ РІ РјРµРЅСЋ
+            // сохраняем в файл наш выбор имени  и го в меню
             frame.dispose();
             settings.setName(textField.getText());
-            Settings.settingsWriter(settings); //СЃРѕС…СЂР°РЅСЏРµРј РЅР°СЃС‚СЂРѕР№РєРё РІ settings.json
+            Settings.settingsWriter(settings); //сохраняем настройки в settings.json
             MainMenuFrame mainMenuFrame = new MainMenuFrame();
         }
         if (e.getSource() == noSaveButton) {
-            // Р”РѕРјРѕР№ Р±РµР· СЃРѕС…СЂР°РЅРµРЅРёСЏ
+            // Домой без сохранения
             frame.dispose();
-            Settings.settingsWriter(settings); //СЃРѕС…СЂР°РЅСЏРµРј РЅР°СЃС‚СЂРѕР№РєРё РІ settings.json
             MainMenuFrame mainMenuFrame = new MainMenuFrame();
         }
         if (e.getSource() == timeChallenge) {
-            // Р’С‹Р±СЂР°РЅ СЂРµР¶РёРј РїРѕ РІСЂРµРјРµРЅРё
+            settings.setModeGame(timeChallenge.getText());
+            // Выбран режим по времени
         }
         if (e.getSource() == survivalChallenge) {
-            // Р’С‹Р±СЂР°РЅ СЂРµР¶РёРј РІС‹Р¶РёРІР°РЅРёСЏ
+            settings.setModeGame(survivalChallenge.getText());
+            // Выбран режим выживания
         }
 
     }
