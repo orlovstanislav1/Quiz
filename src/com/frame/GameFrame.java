@@ -163,7 +163,7 @@ public class GameFrame implements ActionListener {
         seconds_left.setOpaque(true);
         seconds_left.setHorizontalAlignment(JTextField.CENTER);
         seconds_left.setText(String.valueOf(seconds));
-
+//
         lives_left.setBounds(535, 140, 100, 100);
         lives_left.setBackground(new Color(25, 25, 25));
         lives_left.setForeground(new Color(255, 0, 0));
