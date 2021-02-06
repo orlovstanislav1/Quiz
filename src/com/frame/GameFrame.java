@@ -28,6 +28,7 @@ public abstract class GameFrame implements ActionListener {
     protected int index;
     protected int correct_guesses = 0;
     protected int seconds = settings.getSeconds();
+    protected int numberLives=settings.getNumberLives();
 
     protected final JFrame frame = new JFrame();
     protected final JTextField textField = new JTextField();
