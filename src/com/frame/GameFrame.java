@@ -3,10 +3,11 @@ package com.frame;
 
 // ---------------------------- Quiz ----------------------------
 
-/**GameFrame
+/**
+ * GameFrame
  * убрать из класса все лишнее
  * перемеслить не стандартную логику игры в классы-наследники
- * */
+ */
 
 import com.quiz.Question;
 import com.quiz.Scores;
@@ -29,7 +30,9 @@ public class GameFrame implements ActionListener {
     private String answer;
     private int index;
     private int correct_guesses = 0;
+    protected int numberLives = settings.getNumberLives();
     private int seconds = settings.getSeconds();
+
 
     private final JFrame frame = new JFrame();
     private final JTextField textField = new JTextField();
@@ -45,6 +48,7 @@ public class GameFrame implements ActionListener {
     private final JLabel answer_labelC = new JLabel();
     private final JLabel answer_labelD = new JLabel();
     private final JLabel seconds_left = new JLabel();
+    private final JLabel lives_left = new JLabel();
     private final JTextField number_right = new JTextField();
     private final JTextField percentage = new JTextField();
 
@@ -160,6 +164,15 @@ public class GameFrame implements ActionListener {
         seconds_left.setHorizontalAlignment(JTextField.CENTER);
         seconds_left.setText(String.valueOf(seconds));
 
+        lives_left.setBounds(535, 140, 100, 100);
+        lives_left.setBackground(new Color(25, 25, 25));
+        lives_left.setForeground(new Color(255, 0, 0));
+        lives_left.setFont(new Font("Ink Free", Font.BOLD, 60));
+        lives_left.setBorder(BorderFactory.createBevelBorder(1));
+        lives_left.setOpaque(true);
+        lives_left.setHorizontalAlignment(JTextField.CENTER);
+        lives_left.setText(String.valueOf(numberLives));
+
         JLabel time_label = new JLabel();
         time_label.setBounds(535, 475, 100, 25);
         time_label.setBackground(new Color(50, 50, 50));
@@ -198,6 +211,7 @@ public class GameFrame implements ActionListener {
         frame.add(buttonToMenu);
         frame.add(textarea);
         frame.add(textField);
+        frame.add(lives_left);
         frame.setVisible(true);
 
         buttonToMenu.setEnabled(false);
@@ -337,6 +351,6 @@ public class GameFrame implements ActionListener {
         frame.add(number_right);
         frame.add(percentage);
 
-        Settings.scoresWriter(new Scores(settings.getName(),"",correct_guesses*100));
+        Settings.scoresWriter(new Scores(settings.getName(), "", correct_guesses * 100));
     }
 }
