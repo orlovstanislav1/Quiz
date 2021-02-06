@@ -26,7 +26,7 @@ public class GameFrame implements ActionListener {
     private final Settings settings = Settings.readSettings();
     private final Question[] questions = randomQuestions();
 
-//
+
     private String answer;
     private int index;
     private int correct_guesses = 0;
