@@ -83,12 +83,10 @@ public abstract class GameFrame implements ActionListener {
         textField.setHorizontalAlignment(JTextField.CENTER);
         textField.setEditable(false);
 
-        textarea.setBounds(10, 50, 600, 75);
-        // textarea.setLineWrap(true);
-        //  textarea.setWrapStyleWord(true);
+        textarea.setBounds(10, 50, 600, 80);
         textarea.setBackground(new Color(170, 66, 66));
         textarea.setForeground(new Color(219, 206, 206));
-        textarea.setFont(new Font("Courier", Font.BOLD, 20));
+        textarea.setFont(new Font("Courier", Font.BOLD, 15));
         textarea.setBorder(BorderFactory.createBevelBorder(1));
         textarea.setEditable(false);
         StyledDocument doc = textarea.getStyledDocument();

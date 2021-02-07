@@ -218,19 +218,19 @@ public class SettingsFrame extends JFrame implements ActionListener {
             // Выбран режим выживания
         }
         if (e.getSource() == button_Easy) {
-            settings.setSeconds(15);
+            settings.setSeconds(60);
             settings.setNumberLives(4);
             // легкая сложность
         }
 
         if (e.getSource() == button_Normal) {
-            settings.setSeconds(10);
+            settings.setSeconds(40);
             settings.setNumberLives(2);
             // нормальная сложность
         }
 
         if (e.getSource() == button_Hard) {
-            settings.setSeconds(5);
+            settings.setSeconds(20);
             settings.setNumberLives(0);
             // сложная сложность
         }
