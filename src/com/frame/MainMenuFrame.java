@@ -1,12 +1,18 @@
 package com.frame;
 
+import com.mode.SurvivalGame;
+import com.mode.TimerGame;
+import com.quiz.Settings;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Set;
 
 public class MainMenuFrame extends JFrame implements ActionListener {
-    private  final JFrame frame;
+    private final Settings settings = Settings.readSettings();
+    private final JFrame frame;
     private final JButton buttonA = new JButton();
     private final JButton buttonB = new JButton();
     private final JButton buttonC = new JButton();
@@ -65,19 +71,30 @@ public class MainMenuFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        //режимы игры
         if (e.getSource() == buttonA) {
-            GameFrame gameFrame = new GameFrame();
+            switch (settings.getModeGame()) {
+                case ("Timer"):
+                    GameFrame timerGame = new TimerGame();
+                    break;
+                case ("Survival"):
+                    GameFrame survivalGame = new SurvivalGame();
+                    break;
+            }
+
+            GameFrame gameFrame = new TimerGame();
         }
         if (e.getSource() == buttonB) {
             //ОТКРЫВАЕМ ОКНО РЕКОРДОВ
             frame.dispose();
             RecordsMenuFrame settingsFrame = new RecordsMenuFrame();
         }
+        //настройки
         if (e.getSource() == buttonC) {
             frame.dispose();
             SettingsFrame settingsFrame = new SettingsFrame();
         }
+        //выход
         if (e.getSource() == buttonD) {
             System.exit(0);
         }

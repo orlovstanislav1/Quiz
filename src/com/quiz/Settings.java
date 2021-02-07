@@ -20,6 +20,9 @@ public class Settings {
     private String fileQuestion = "questions.json";
     private static final File fileSettings = new File("settings.json");
     private static final File fileScores = new File("score.json");
+    private String modeGame = "Timer";
+    private int numberLives=0;
+
 
     public Settings(String name, int total_questions) {
         this.name = name;
@@ -34,7 +37,7 @@ public class Settings {
         List<Scores> scores = scoresReader();
         scores.add(score);
         scores = scores.stream()
-                .sorted((o1, o2) -> o2.getScore()-o1.getScore())
+                .sorted((o1, o2) -> o2.getScore() - o1.getScore())
                 .limit(5)
                 .collect(Collectors.toCollection(LinkedList::new));
         ObjectMapper objectMapper = new ObjectMapper();
@@ -145,5 +148,19 @@ public class Settings {
         return fileSettings;
     }
 
+    public String getModeGame() {
+        return modeGame;
+    }
 
+    public void setModeGame(String modeGame) {
+        this.modeGame = modeGame;
+    }
+
+    public int getNumberLives() {
+        return numberLives;
+    }
+
+    public void setNumberLives(int numberLives) {
+        this.numberLives = numberLives;
+    }
 }
