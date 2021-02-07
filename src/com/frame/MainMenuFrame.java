@@ -85,10 +85,10 @@ public class MainMenuFrame extends JFrame implements ActionListener {
             frame.dispose();
             switch (settings.getModeGame()) {
                 case ("Timer"):
-                    GameFrame timerGame = new TimerGame();
+                     new TimerGame();
                     break;
                 case ("Survival"):
-                    GameFrame survivalGame = new SurvivalGame();
+                    new SurvivalGame();
                     break;
             }
 
@@ -96,12 +96,12 @@ public class MainMenuFrame extends JFrame implements ActionListener {
         if (e.getSource() == buttonB) {
             //ОТКРЫВАЕМ ОКНО РЕКОРДОВ
             frame.dispose();
-            RecordsMenuFrame settingsFrame = new RecordsMenuFrame();
+             new RecordsMenuFrame();
         }
         //настройки
         if (e.getSource() == buttonC) {
             frame.dispose();
-            SettingsFrame settingsFrame = new SettingsFrame();
+             new SettingsFrame();
         }
         //выход
         if (e.getSource() == buttonD) {

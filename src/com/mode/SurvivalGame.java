@@ -2,7 +2,6 @@ package com.mode;
 
 import com.frame.GameFrame;
 import com.frame.MainMenuFrame;
-import com.quiz.Settings;
 
 import java.awt.event.ActionEvent;
 
