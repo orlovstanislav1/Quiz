@@ -1,6 +1,5 @@
 package com.frame;
 
-import com.frame.MainMenuFrame;
 import com.quiz.Scores;
 import com.quiz.Settings;
 
@@ -72,7 +71,7 @@ public class RecordsMenuFrame extends JFrame implements ActionListener {
 
         if (e.getSource() == buttonToMenu) {
             frame.dispose();
-            MainMenuFrame gameFrame = new MainMenuFrame();
+            new MainMenuFrame();
         }
 
 
