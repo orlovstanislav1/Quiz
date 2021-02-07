@@ -24,6 +24,10 @@ public class SettingsFrame extends JFrame implements ActionListener {
     private final JRadioButton timeChallenge;
     private final JRadioButton survivalChallenge;
 
+    private final JRadioButton button_Easy;
+    private final JRadioButton button_Normal;
+    private final JRadioButton button_Hard;
+
     public SettingsFrame() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(650, 650);
@@ -38,7 +42,7 @@ public class SettingsFrame extends JFrame implements ActionListener {
         themeChoose.setFont(new Font("Courier", Font.BOLD, 25));
         themeChoose.setBackground(new Color(219, 206, 206));
         themeChoose.setForeground(new Color(95, 51, 51));
-        themeChoose.setBounds(325, 150, 300, 50);
+        themeChoose.setBounds(320, 150, 250, 50);
         themeChoose.addActionListener(this);
         themeChoose.setSelectedIndex(0);
         themeChoose.setVisible(true);
@@ -46,26 +50,32 @@ public class SettingsFrame extends JFrame implements ActionListener {
         ((JLabel) themeChoose.getRenderer()).setHorizontalAlignment(JLabel.CENTER);
 
 
-        JRadioButton button_Easy = new JRadioButton("Easy");
-        JRadioButton button_Normal = new JRadioButton("Normal");
-        JRadioButton button_Hard = new JRadioButton("Hard");
+        button_Easy = new JRadioButton("Easy");
+        button_Easy.addActionListener(this);
+        button_Easy.setBounds(15, 450, 200, 50);
+        button_Easy.setBackground(new Color(219, 206, 206));
+        button_Easy.setForeground(new Color(95, 51, 51));
+        button_Easy.setFont(new Font("Courier", Font.BOLD, 25));
+
+        button_Normal = new JRadioButton("Normal");
+        button_Normal.setSelected(true);
+        button_Normal.addActionListener(this);
+        button_Normal.setBounds(215, 450, 200, 50);
+        button_Normal.setBackground(new Color(219, 206, 206));
+        button_Normal.setForeground(new Color(95, 51, 51));
+        button_Normal.setFont(new Font("Courier", Font.BOLD, 25));
+
+        button_Hard = new JRadioButton("Hard");
+        button_Hard.addActionListener(this);
+        button_Hard.setBounds(415, 450, 200, 50);
+        button_Hard.setBackground(new Color(219, 206, 206));
+        button_Hard.setForeground(new Color(95, 51, 51));
+        button_Hard.setFont(new Font("Courier", Font.BOLD, 25));
+
         ButtonGroup buttonGroupDifficulty = new ButtonGroup();
         buttonGroupDifficulty.add(button_Easy);
         buttonGroupDifficulty.add(button_Normal);
         buttonGroupDifficulty.add(button_Hard);
-        button_Normal.setSelected(true);
-        button_Easy.setBounds(100, 450, 200, 50);
-        button_Normal.setBounds(300, 450, 200, 50);
-        button_Hard.setBounds(500, 450, 200, 50);
-        button_Easy.setBackground(new Color(219, 206, 206));
-        button_Easy.setForeground(new Color(95, 51, 51));
-        button_Normal.setBackground(new Color(219, 206, 206));
-        button_Normal.setForeground(new Color(95, 51, 51));
-        button_Hard.setBackground(new Color(219, 206, 206));
-        button_Hard.setForeground(new Color(95, 51, 51));
-        button_Easy.setFont(new Font("Courier", Font.BOLD, 25));
-        button_Normal.setFont(new Font("Courier", Font.BOLD, 25));
-        button_Hard.setFont(new Font("Courier", Font.BOLD, 25));
 
         //определить кол-во вопросов
         String[] count = {"5", "10", "15"};
@@ -73,7 +83,7 @@ public class SettingsFrame extends JFrame implements ActionListener {
         questionsCountChoose.setFont(new Font("Courier", Font.BOLD, 25));
         questionsCountChoose.setBackground(new Color(219, 206, 206));
         questionsCountChoose.setForeground(new Color(95, 51, 51));
-        questionsCountChoose.setBounds(300, 250, 300, 50);
+        questionsCountChoose.setBounds(320, 250, 250, 50);
         questionsCountChoose.addActionListener(this);
         questionsCountChoose.setSelectedIndex(0);
         questionsCountChoose.setVisible(true);
@@ -94,29 +104,29 @@ public class SettingsFrame extends JFrame implements ActionListener {
             j.setEditable(false);
             frame.add(j);
         }
-
 //
-        text.setBounds(50, 50, 300, 100);
-        text2.setBounds(50, 150, 300, 100);
-        text3.setBounds(50, 250, 300, 100);
+        text.setBounds(15, 50, 300, 100);
+        text2.setBounds(15, 150, 300, 100);
+        text3.setBounds(15, 250, 300, 100);
 
         timeChallenge = new JRadioButton("Timer");
         timeChallenge.addActionListener(this);
+        timeChallenge.setSelected(true);
+        timeChallenge.setBounds(100, 350, 200, 50);
+        timeChallenge.setBackground(new Color(219, 206, 206));
+        timeChallenge.setForeground(new Color(95, 51, 51));
+        timeChallenge.setFont(new Font("Courier", Font.BOLD, 25));
+
         survivalChallenge = new JRadioButton("Survival");
         survivalChallenge.addActionListener(this);
-        timeChallenge.setSelected(true);
+        survivalChallenge.setBounds(400, 350, 200, 50);
+        survivalChallenge.setBackground(new Color(219, 206, 206));
+        survivalChallenge.setForeground(new Color(95, 51, 51));
+        survivalChallenge.setFont(new Font("Courier", Font.BOLD, 25));
+
         ButtonGroup buttonGroup = new ButtonGroup();
         buttonGroup.add(timeChallenge);
         buttonGroup.add(survivalChallenge);
-
-        timeChallenge.setBounds(100, 350, 200, 50);
-        survivalChallenge.setBounds(400, 350, 200, 50);
-        timeChallenge.setBackground(new Color(219, 206, 206));
-        timeChallenge.setForeground(new Color(95, 51, 51));
-        survivalChallenge.setBackground(new Color(219, 206, 206));
-        survivalChallenge.setForeground(new Color(95, 51, 51));
-        timeChallenge.setFont(new Font("Courier", Font.BOLD, 25));
-        survivalChallenge.setFont(new Font("Courier", Font.BOLD, 25));
 
         textField.setBounds(325, 50, 300, 50);
         textField.setFont(new Font("Courier", Font.BOLD, 35));
@@ -128,6 +138,7 @@ public class SettingsFrame extends JFrame implements ActionListener {
         textField.setBackground(Color.black);
         textField.setCaretColor(Color.white);
         textField.setHorizontalAlignment(JLabel.CENTER);
+
         textField.addFocusListener(new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
@@ -165,7 +176,6 @@ public class SettingsFrame extends JFrame implements ActionListener {
         frame.add(button_Easy);
         frame.add(button_Normal);
         frame.add(button_Hard);
-
     }
 //
 
@@ -173,11 +183,11 @@ public class SettingsFrame extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == themeChoose) {
             if (Objects.requireNonNull(themeChoose.getSelectedItem()).equals("JAVA"))
-                settings.setFileQuestion("questions.json");
+                settings.setFileQuestion("JAVA.json");
             if (themeChoose.getSelectedItem().equals("SCIENCE"))
                 settings.setFileQuestion("questions.json");
             if (themeChoose.getSelectedItem().equals("SPORT"))
-                settings.setFileQuestion("questions.json");
+                settings.setFileQuestion("SPORT.json");
             // сохраняем в файл наш выбор темы
         }
         if (e.getSource() == questionsCountChoose) {
@@ -205,6 +215,22 @@ public class SettingsFrame extends JFrame implements ActionListener {
             settings.setModeGame(survivalChallenge.getText());
             // Выбран режим выживания
         }
+        if (e.getSource() == button_Easy) {
+            settings.setSeconds(15);
+            settings.setNumberLives(4);
+            // легкая сложность
+        }
 
+        if (e.getSource() == button_Normal) {
+            settings.setSeconds(10);
+            settings.setNumberLives(2);
+            // нормальная сложность
+        }
+
+        if (e.getSource() == button_Hard) {
+            settings.setSeconds(5);
+            settings.setNumberLives(0);
+            // сложная сложность
+        }
     }
 }

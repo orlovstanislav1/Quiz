@@ -2,6 +2,7 @@ package com.mode;
 
 import com.frame.GameFrame;
 import com.frame.MainMenuFrame;
+import com.quiz.Settings;
 
 import java.awt.event.ActionEvent;
 
@@ -30,11 +31,9 @@ public class SurvivalGame extends GameFrame {
             answer = "A";
             if (answer.equals(questions[index].getCorrectAnswer())) {
                 correct_guesses++;
-                System.out.println("+");
             } else numberLives--;
             displayAnswer();
         }
-
         if (e.getSource() == buttonB) {
             answer = "B";
             if (answer.equals(questions[index].getCorrectAnswer())) {

@@ -16,12 +16,12 @@ import java.util.stream.Collectors;
 public class Settings {
     private String name = "Name";
     private int total_questions = 5;
-    private final int seconds = 10;
+    private int seconds = 10;
     private String fileQuestion = "questions.json";
     private static final File fileSettings = new File("settings.json");
     private static final File fileScores = new File("score.json");
     private String modeGame = "Timer";
-    private int numberLives=3;
+    private int numberLives = 2;
 
 
     public Settings(String name, int total_questions) {
@@ -136,6 +136,11 @@ public class Settings {
     public int getSeconds() {
         return seconds;
     }
+
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
+    }
+
 
     public String getFileQuestion() {
         return fileQuestion;

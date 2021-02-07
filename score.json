@@ -9,6 +9,11 @@
 }, {
   "name" : "Enter name",
   "answer" : "",
+  "score" : 500
+}, {
+  "name" : "Enter name",
+  "name" : "Enter name",
+  "answer" : "",
   "score" : 400
 }, {
   "name" : "Enter name",
@@ -18,4 +23,9 @@
   "name" : "нпро",
   "answer" : "",
   "score" : 200
+  "score" : 500
+}, {
+  "name" : "Enter name",
+  "answer" : "",
+  "score" : 400
 } ]
