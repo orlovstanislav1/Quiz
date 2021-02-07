@@ -30,7 +30,6 @@ public class SurvivalGame extends GameFrame {
             answer = "A";
             if (answer.equals(questions[index].getCorrectAnswer())) {
                 correct_guesses++;
-                System.out.println("+");
             } else numberLives--;
             displayAnswer();
         }

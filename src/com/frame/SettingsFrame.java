@@ -12,6 +12,7 @@ import java.util.Objects;
 
 public class SettingsFrame extends JFrame implements ActionListener {
     private final Settings settings = new Settings();
+
     private final JFrame frame = new JFrame();
 
     private final JButton saveButton;
@@ -23,6 +24,10 @@ public class SettingsFrame extends JFrame implements ActionListener {
 
     private final JRadioButton timeChallenge;
     private final JRadioButton survivalChallenge;
+
+    private final JRadioButton button_Easy;
+    private final JRadioButton button_Normal;
+    private final JRadioButton button_Hard;
 
     public SettingsFrame() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,7 +43,7 @@ public class SettingsFrame extends JFrame implements ActionListener {
         themeChoose.setFont(new Font("Courier", Font.BOLD, 25));
         themeChoose.setBackground(new Color(219, 206, 206));
         themeChoose.setForeground(new Color(95, 51, 51));
-        themeChoose.setBounds(325, 150, 300, 50);
+        themeChoose.setBounds(320, 150, 250, 50);
         themeChoose.addActionListener(this);
         themeChoose.setSelectedIndex(0);
         themeChoose.setVisible(true);
@@ -46,17 +51,17 @@ public class SettingsFrame extends JFrame implements ActionListener {
         ((JLabel) themeChoose.getRenderer()).setHorizontalAlignment(JLabel.CENTER);
 
 
-        JRadioButton button_Easy = new JRadioButton("Easy");
-        JRadioButton button_Normal = new JRadioButton("Normal");
-        JRadioButton button_Hard = new JRadioButton("Hard");
+        button_Easy = new JRadioButton("Easy");
+        button_Normal = new JRadioButton("Normal");
+        button_Hard = new JRadioButton("Hard");
         ButtonGroup buttonGroupDifficulty = new ButtonGroup();
         buttonGroupDifficulty.add(button_Easy);
         buttonGroupDifficulty.add(button_Normal);
         buttonGroupDifficulty.add(button_Hard);
         button_Normal.setSelected(true);
-        button_Easy.setBounds(100, 450, 200, 50);
-        button_Normal.setBounds(300, 450, 200, 50);
-        button_Hard.setBounds(500, 450, 200, 50);
+        button_Easy.setBounds(15, 450, 200, 50);
+        button_Normal.setBounds(215, 450, 200, 50);
+        button_Hard.setBounds(415, 450, 200, 50);
         button_Easy.setBackground(new Color(219, 206, 206));
         button_Easy.setForeground(new Color(95, 51, 51));
         button_Normal.setBackground(new Color(219, 206, 206));
@@ -73,7 +78,7 @@ public class SettingsFrame extends JFrame implements ActionListener {
         questionsCountChoose.setFont(new Font("Courier", Font.BOLD, 25));
         questionsCountChoose.setBackground(new Color(219, 206, 206));
         questionsCountChoose.setForeground(new Color(95, 51, 51));
-        questionsCountChoose.setBounds(300, 250, 300, 50);
+        questionsCountChoose.setBounds(320, 250, 250, 50);
         questionsCountChoose.addActionListener(this);
         questionsCountChoose.setSelectedIndex(0);
         questionsCountChoose.setVisible(true);
@@ -96,9 +101,9 @@ public class SettingsFrame extends JFrame implements ActionListener {
         }
 
 //
-        text.setBounds(50, 50, 300, 100);
-        text2.setBounds(50, 150, 300, 100);
-        text3.setBounds(50, 250, 300, 100);
+        text.setBounds(15, 50, 300, 100);
+        text2.setBounds(15, 150, 300, 100);
+        text3.setBounds(15, 250, 300, 100);
 
         timeChallenge = new JRadioButton("Timer");
         timeChallenge.addActionListener(this);
@@ -205,6 +210,24 @@ public class SettingsFrame extends JFrame implements ActionListener {
             settings.setModeGame(survivalChallenge.getText());
             // Выбран режим выживания
         }
+        if (e.getSource() == button_Easy) {
+            settings.setSeconds(15);
+            settings.setNumberLives(4);
+            // легкая сложность
+        }
+
+        if (e.getSource() == button_Normal) {
+            settings.setSeconds(10);
+            settings.setNumberLives(2);
+            // легкая сложность
+        }
+
+        if (e.getSource() == button_Hard) {
+            settings.setSeconds(5);
+            settings.setNumberLives(0);
+            // легкая сложность
+        }
+
 
     }
 }

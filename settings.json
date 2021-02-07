@@ -1,8 +1,8 @@
 {
   "name" : "Enter name",
-  "total_questions" : 5,
+  "total_questions" : 10,
   "seconds" : 10,
   "fileQuestion" : "questions.json",
   "modeGame" : "Survival",
-  "numberLives" : 3
+  "numberLives" : 2
 }
