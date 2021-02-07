@@ -219,7 +219,7 @@ public abstract class GameFrame implements ActionListener {
 
     private void nextQuestion() {
 
-        if (index >= settings.getTotal_questions() || numberLives == 0) {
+        if (index >= settings.getTotal_questions() || numberLives < 0) {
             results();
         } else {
             textField.setText("Question " + (index + 1));
