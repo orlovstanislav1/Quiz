@@ -7,7 +7,7 @@ package com.frame;
  * GameFrame
  * убрать из класса все лишнее
  * перемеслить не стандартную логику игры в классы-наследники
- * */
+ */
 
 import com.quiz.Question;
 import com.quiz.Scores;
@@ -15,7 +15,6 @@ import com.quiz.Settings;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.HashSet;
 import java.util.Random;
@@ -30,7 +29,7 @@ public abstract class GameFrame implements ActionListener {
     protected int index;
     protected int correct_guesses = 0;
     protected int seconds = settings.getSeconds();
-    protected int numberLives=settings.getNumberLives();
+    protected int numberLives = settings.getNumberLives();
 
     protected final JFrame frame = new JFrame();
     protected final JTextField textField = new JTextField();
@@ -223,7 +222,7 @@ public abstract class GameFrame implements ActionListener {
 
     private void nextQuestion() {
 
-        if (index >= settings.getTotal_questions()) {
+        if (index >= settings.getTotal_questions()||numberLives<0) {
             results();
         } else {
             textField.setText("Question " + (index + 1));
@@ -254,7 +253,7 @@ public abstract class GameFrame implements ActionListener {
         if (!questions[index].getCorrectAnswer().equals("D"))
             answer_labelD.setForeground(new Color(255, 0, 0));
 
-        Timer pause = new Timer(2000, e -> {
+        Timer pause = new Timer(1000, e -> {
 
             answer_labelA.setForeground(new Color(25, 255, 0));
             answer_labelB.setForeground(new Color(25, 255, 0));
@@ -264,6 +263,10 @@ public abstract class GameFrame implements ActionListener {
             answer = " ";
             seconds = settings.getSeconds();
             seconds_left.setText(String.valueOf(seconds));
+
+            //здесь обновлять?
+            lives_left.setText(String.valueOf(numberLives));
+
             buttonA.setEnabled(true);
             buttonB.setEnabled(true);
             buttonC.setEnabled(true);
@@ -302,6 +305,6 @@ public abstract class GameFrame implements ActionListener {
         frame.add(number_right);
         frame.add(percentage);
 
-        Settings.scoresWriter(new Scores(settings.getName(),"",correct_guesses*100));
+        Settings.scoresWriter(new Scores(settings.getName(), "", correct_guesses * 100));
     }
 }

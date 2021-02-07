@@ -20,8 +20,6 @@ import java.awt.event.ActionEvent;
 
 
 public class SurvivalGame extends GameFrame {
-    private final Settings settings=super.settings;
-    private int numberLives=super.numberLives;
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -35,31 +33,30 @@ public class SurvivalGame extends GameFrame {
             answer = "A";
             if (answer.equals(questions[index].getCorrectAnswer())) {
                 correct_guesses++;
-            }
+            }else numberLives--;
             displayAnswer();
         }
         if (e.getSource() == buttonB) {
             answer = "B";
             if (answer.equals(questions[index].getCorrectAnswer())) {
                 correct_guesses++;
-            }
+            }else numberLives--;
             displayAnswer();
         }
         if (e.getSource() == buttonC) {
             answer = "C";
             if (answer.equals(questions[index].getCorrectAnswer())) {
                 correct_guesses++;
-            }
+            }else numberLives--;
             displayAnswer();
         }
         if (e.getSource() == buttonD) {
             answer = "D";
             if (answer.equals(questions[index].getCorrectAnswer())) {
                 correct_guesses++;
-            }
+            }else numberLives--;
             displayAnswer();
         }
-
 
         if (e.getSource() == buttonRepeat) {
             frame.dispose();
