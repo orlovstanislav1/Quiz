@@ -7,15 +7,15 @@
   "answer" : "",
   "score" : 500
 }, {
+  "name" : "Enter name",
+  "answer" : "",
+  "score" : 400
+}, {
+  "name" : "Enter name",
+  "answer" : "",
+  "score" : 400
+}, {
   "name" : "нпро",
   "answer" : "",
   "score" : 200
-}, {
-  "name" : "Вася",
-  "answer" : "Ответ",
-  "score" : 15
-}, {
-  "name" : "Маша",
-  "answer" : "Ответ",
-  "score" : 10
 } ]

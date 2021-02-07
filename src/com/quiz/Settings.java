@@ -21,7 +21,7 @@ public class Settings {
     private static final File fileSettings = new File("settings.json");
     private static final File fileScores = new File("score.json");
     private String modeGame = "Timer";
-    private int numberLives=0;
+    private int numberLives=3;
 
 
     public Settings(String name, int total_questions) {
@@ -35,6 +35,7 @@ public class Settings {
     // запись заработанных очков
     public static void scoresWriter(Scores score) {
         List<Scores> scores = scoresReader();
+        assert scores != null;
         scores.add(score);
         scores = scores.stream()
                 .sorted((o1, o2) -> o2.getScore() - o1.getScore())

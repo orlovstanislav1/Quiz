@@ -3,12 +3,7 @@ package com.frame;
 
 // ---------------------------- Quiz ----------------------------
 
-/**
- * GameFrame
- * убрать из класса все лишнее
- * перемеслить не стандартную логику игры в классы-наследники
- */
-
+import com.mode.SurvivalGame;
 import com.quiz.Question;
 import com.quiz.Scores;
 import com.quiz.Settings;
@@ -162,6 +157,8 @@ public abstract class GameFrame implements ActionListener {
         seconds_left.setHorizontalAlignment(JTextField.CENTER);
         seconds_left.setText(String.valueOf(seconds));
 
+
+        lives_left.setVisible(this instanceof SurvivalGame);
         lives_left.setBounds(535, 140, 100, 100);
         lives_left.setBackground(new Color(25, 25, 25));
         lives_left.setForeground(new Color(255, 0, 0));
@@ -222,7 +219,7 @@ public abstract class GameFrame implements ActionListener {
 
     private void nextQuestion() {
 
-        if (index >= settings.getTotal_questions()||numberLives<0) {
+        if (index >= settings.getTotal_questions() || numberLives == 0) {
             results();
         } else {
             textField.setText("Question " + (index + 1));
@@ -264,7 +261,6 @@ public abstract class GameFrame implements ActionListener {
             seconds = settings.getSeconds();
             seconds_left.setText(String.valueOf(seconds));
 
-            //здесь обновлять?
             lives_left.setText(String.valueOf(numberLives));
 
             buttonA.setEnabled(true);

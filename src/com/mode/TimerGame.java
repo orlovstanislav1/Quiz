@@ -46,11 +46,11 @@ public class TimerGame extends GameFrame {
 
         if (e.getSource() == buttonRepeat) {
             frame.dispose();
-            GameFrame gameFrame = new TimerGame();
+            new TimerGame();
         }
         if (e.getSource() == buttonToMenu) {
             frame.dispose();
-            MainMenuFrame mainMenuFrame = new MainMenuFrame();
+            new MainMenuFrame();
         }
     }
 }
