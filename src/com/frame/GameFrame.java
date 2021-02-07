@@ -31,7 +31,9 @@ public abstract class GameFrame implements ActionListener {
 
     protected final JFrame frame = new JFrame();
     protected final JTextField textField = new JTextField();
+
     protected final JTextPane textarea = new JTextPane();
+
     protected final JButton buttonA = new JButton();
     protected final JButton buttonB = new JButton();
     protected final JButton buttonC = new JButton();

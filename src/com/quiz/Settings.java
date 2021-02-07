@@ -16,12 +16,12 @@ import java.util.stream.Collectors;
 public class Settings {
     private String name = "Name";
     private int total_questions = 5;
-    private final int seconds = 10;
+    private int seconds = 10;
     private String fileQuestion = "questions.json";
     private static final File fileSettings = new File("settings.json");
     private static final File fileScores = new File("score.json");
     private String modeGame = "Timer";
-    private int numberLives=0;
+    private int numberLives = 2;
 
 
     public Settings(String name, int total_questions) {
@@ -35,6 +35,7 @@ public class Settings {
     // запись заработанных очков
     public static void scoresWriter(Scores score) {
         List<Scores> scores = scoresReader();
+        assert scores != null;
         scores.add(score);
         scores = scores.stream()
                 .sorted((o1, o2) -> o2.getScore() - o1.getScore())
@@ -84,7 +85,6 @@ public class Settings {
         }
         return null;
     }
-
     //сохранение настроек
     public static void settingsWriter(Settings setting) {
         ObjectMapper objectMapper = new ObjectMapper();
@@ -136,6 +136,11 @@ public class Settings {
     public int getSeconds() {
         return seconds;
     }
+
+    public void setSeconds(int seconds) {
+        this.seconds = seconds;
+    }
+
 
     public String getFileQuestion() {
         return fileQuestion;
